@@ -1,0 +1,16 @@
+#main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.food {
+  width: 25vw;
+  height: 25vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.food:hover {
+  background-color: var(--color-white) !important;
+}

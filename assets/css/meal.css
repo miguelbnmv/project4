@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+}
+
+.food_column {
+  width: 25%;
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: var(--color-green);
+}
+
+.plate_column {
+  width: 50%;
+  height: 100vh;
+}
+
+.plate_column img {
+  width: 100%;
+}
+
+.food_meal {
+  width: 100%;;
+  height: 25vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
