@@ -48,6 +48,7 @@
   <div class="container" id="main">
   </div>
   <script type="text/javascript">
+/////////////////////////////////////////////////////////////// OPEN MENU
     function toogle_menu() {
       var f = document.getElementsByClassName("aside-section");
        if(f[0].style.display == 'flex') {
@@ -58,25 +59,49 @@
           f[1].style.display = "flex";
       }
     }
-
+/////////////////////////////////////////////////////////////// CHANGE QUOTE
     function change_quote() {
+      var text = readTextFile("./quote.txt").toString('utf-8');
+      console.log(text);
       var g = document.getElementsByClassName("aside-section");
       var h = document.getElementById("quote");
        if(g[0].style.display == 'flex')
           h.innerHTML = "ola";
     }
-
+/////////////////////////////////////////////////////////////// ADD FOOD DIVS
     var myColors = [];
     myColors.push("green", "yellow", "blue", "pink");
     var myFood = [];
     myFood.push("banana", "ananas", "pao", "batata", "coca-cola", "carne", "alface", "pepino", "pera", "queijo", "fiambre", "agua", "massa", "arroz");
     for(var i=0; i<myFood.length; i++) {
       var div = document.createElement("div");
+      var panel = document.createElement("div");
+      panel.classList.add("panel");
+      var para = document.createElement("p");
+      var node = document.createTextNode("This is new.");
+      para.appendChild(node);
       div.classList.add("food");
+      div.classList.add("accordion");
       div.style.backgroundColor = "var(--color-"+myColors[Math.floor(Math.random() * 4)]+")";
       div.style.backgroundImage = "url('assets/img/"+myFood[i]+".png')";
-
+      panel.appendChild(para);
       document.getElementById("main").appendChild(div);
+      document.getElementById("main").appendChild(panel);
+    }
+/////////////////////////////////////////////////////////////// OPEN INFO
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
     }
   </script>
 </body>

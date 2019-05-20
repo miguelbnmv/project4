@@ -11,7 +11,7 @@
 .aside-left {
   width: 60%;
   left: 0;
-  background-color: var(--color-yellow);
+  background-color: var(--color-blue);
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
