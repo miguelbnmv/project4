@@ -14,3 +14,20 @@
 .food:hover {
   background-color: var(--color-white) !important;
 }
+
+
+.accordion {
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  transition: 0.4s;
+}
+
+.panel {
+  display: none;
+  overflow: hidden;
+  width: 100vw;
+  height: 25vh;
+  background-color: var(--color-pink);
+}

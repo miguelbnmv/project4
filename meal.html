@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="robots" content="noydir, noodp">
@@ -50,6 +50,7 @@
     </div>
     <div class="plate_column">
       <img src="assets/img/plate.png" alt="prato">
+      <a href="">Create your food!</a>
     </div>
     <div class="food_column" id="food_column2">
     </div>
@@ -81,22 +82,28 @@
   myFood.push("banana", "ananas", "pao", "batata", "coca-cola", "carne", "alface", "pepino", "pera", "queijo", "fiambre", "agua", "massa", "arroz");
 
   for(var i=0; i<(myFood.length/2); i++) {
+    var x = document.createElement("IMG");
+    x.setAttribute("src", "assets/img/"+myFood[i]+".png");
+    x.id = 'food'+i;
+
     var div = document.createElement("div");
     div.classList.add("food_meal");
     div.style.backgroundColor = "var(--color-"+myColors[Math.floor(Math.random() * 4)]+")";
-    div.style.backgroundImage = "url('assets/img/"+myFood[i]+".png')";
-    div.id = 'food'+i;
-
+    div.appendChild(x);
     document.getElementById("food_column1").appendChild(div);
   }
-
+ var k = 0;
   for(var i=(myFood.length/2); i<myFood.length; i++) {
+    var x = document.createElement("IMG");
+    x.setAttribute("src", "assets/img/"+myFood[i]+".png");
+    x.id = 'food'+i;
+
     var div = document.createElement("div");
     div.classList.add("food_meal");
     div.style.backgroundColor = "var(--color-"+myColors[Math.floor(Math.random() * 4)]+")";
-    div.style.backgroundImage = "url('assets/img/"+myFood[i]+".png')";
-
+    div.appendChild(x);
     document.getElementById("food_column2").appendChild(div);
+    k++;
   }
 
   //Make the DIV element draggagle:
@@ -114,6 +121,7 @@
     }
 
     function dragMouseDown(e) {
+      elmnt.style.position="absolute";
       console.log("2");
       e = e || window.event;
       e.preventDefault();
