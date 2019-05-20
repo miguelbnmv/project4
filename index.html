@@ -59,7 +59,7 @@
       </aside>
     <div id="myButton" style="display: flex;" class="content">
       <h1>When life gives you lemons, make lemonade</h1>
-      <a href="food.html">Food Food Food</a>
+      <a class="cta" href="food.html">Food Food Food</a>
     </div>
   </div>
   <script type="text/javascript">
@@ -80,6 +80,15 @@
        if(g[0].style.display == 'flex')
           h.innerHTML = "ola";
     }
+
+    var $button = document.querySelector('.myButton');
+    $button.addEventListener('onmouseover', function() {
+      var duration = 0.3,
+          delay = 0.08;
+    TweenMax.to($button, duration, {scaleY: 1.6, ease: Expo.easeOut});
+    TweenMax.to($button, duration, {scaleX: 1.2, scaleY: 1, ease: Back.easeOut, easeParams: [3], delay: delay});
+    TweenMax.to($button, duration * 1.25, {scaleX: 1, scaleY: 1, ease: Back.easeOut, easeParams: [6], delay: delay * 3 });
+  });
   </script>
 </body>
 </html>
