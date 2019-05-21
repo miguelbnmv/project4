@@ -4,19 +4,11 @@
 }
 
 .food {
-<<<<<<< HEAD
   width: 25%;
   height: 25vh;
   display: flex;
   align-items: center;
   justify-content: center;
-=======
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 25%;
-  height: 25vh;
->>>>>>> d52d0e40d3736140604a042fc21ec3488f6ecbfa
   cursor: pointer;
   border: none;
   text-align: left;
@@ -37,16 +29,6 @@
   background-color: var(--color-white) !important;
 }
 
-<<<<<<< HEAD
-.panel {
-  display: none;
-  overflow: hidden;
-  width: 50vh;
-  height: 50vh;
-  background-color: var(--color-pink);
-  margin-top: 20vh;
-
-=======
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -85,5 +67,4 @@
   color: var(--color-pink);
   text-decoration: none;
   cursor: pointer;
->>>>>>> d52d0e40d3736140604a042fc21ec3488f6ecbfa
 }
