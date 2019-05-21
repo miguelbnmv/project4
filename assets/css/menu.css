@@ -6,6 +6,7 @@
   top: 0;
   bottom: 0;
   position: fixed;
+  z-index: 1000;
 }
 
 .aside-left {
@@ -118,7 +119,7 @@ label {
   background-color: transparent;
   cursor: pointer;
   margin: 10px;
-  z-index: 3;
+  z-index: 1001;
   position: fixed;
 }
 

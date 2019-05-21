@@ -49,7 +49,7 @@
   <div class="container" id="main">
     <div class="food_column" id="food_column1">
     </div>
-    <div class="plate_column">
+    <div class="plate_column" id="plate_column1">
       <img src="assets/img/plate.png" alt="prato">
       <a href="">Create your food!</a>
     </div>
@@ -84,7 +84,7 @@
   for(var i=0; i<(myFood.length/2); i++) {
     var x = document.createElement("IMG");
     x.setAttribute("src", "assets/img/"+myFood[i]+".png");
-    x.id = 'food'+i;
+    x.id = i;
 
     var div = document.createElement("div");
     div.classList.add("food_meal");
@@ -96,7 +96,7 @@
   for(var i=(myFood.length/2); i<myFood.length; i++) {
     var x = document.createElement("IMG");
     x.setAttribute("src", "assets/img/"+myFood[i]+".png");
-    x.id = 'food'+i;
+    x.id = i;
 
     var div = document.createElement("div");
     div.classList.add("food_meal");
@@ -106,12 +106,16 @@
     k++;
   }
 
-  var oi;
   $('body').on('click', function(e){
-     oi = e.target.id;
-  });
+
   //Make the DIV element draggagle:
-  dragElement(document.getElementById(oi));
+  if(e.target.id!="food_column1" || e.target.id!="food_column2" || e.target.id!="plate_column1" || e.target.id!="main"){
+    console.log("1");
+    console.log(e.target.id);
+  } else {
+    console.log("2");
+  }
+  dragElement(document.getElementById(e.target.id));
 
   function dragElement(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -149,12 +153,21 @@
     }
 
     function closeDragElement() {
+      var col1 = document.getElementById("food_column1");
+      var col2 = document.getElementById("food_column2");
+      var col3 = document.getElementById("plate_column1");
+      if(elmnt.offsetLeft >= col1.offsetWidth &&  elmnt.offsetLeft < col2.offsetWidth+col3.offsetWidth) {
+        elmnt.setAttribute("src", "assets/img/"+myFood[elmnt.id]+myFood[elmnt.id]+".png");
+      } else if(elmnt.offsetLeft < col1.offsetWidth || elmnt.offsetLeft > col2.offsetWidth+col3.offsetWidth) {
+        elmnt.setAttribute("src", "assets/img/"+myFood[elmnt.id]+".png");
+      }
+      elmnt.style.position="fixed";
       /* stop moving when mouse button is released:*/
       document.onmouseup = null;
       document.onmousemove = null;
     }
   }
-
+});
 </script>
 </body>
 </html>
