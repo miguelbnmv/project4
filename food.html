@@ -74,6 +74,9 @@
     var myFood = [];
     myFood.push("banana", "ananas", "pao", "batata", "coca-cola", "carne", "alface", "pepino", "pera", "queijo", "fiambre", "agua", "massa", "arroz");
     for(var i=0; i<myFood.length; i++) {
+      var x = document.createElement("IMG");
+      x.setAttribute("src", "assets/img/"+myFood[i]+".png");
+      x.id = i;
       var div = document.createElement("div");
       var panel = document.createElement("div");
       panel.classList.add("panel");
@@ -81,15 +84,14 @@
       var node = document.createTextNode("This is new.");
       para.appendChild(node);
       div.classList.add("food");
-      div.classList.add("accordion");
       div.style.backgroundColor = "var(--color-"+myColors[Math.floor(Math.random() * 4)]+")";
-      div.style.backgroundImage = "url('assets/img/"+myFood[i]+".png')";
+      div.appendChild(x);
       panel.appendChild(para);
       document.getElementById("main").appendChild(div);
       document.getElementById("main").appendChild(panel);
     }
 /////////////////////////////////////////////////////////////// OPEN INFO
-    var acc = document.getElementsByClassName("accordion");
+    var acc = document.getElementsByClassName("food");
     var i;
 
     for (i = 0; i < acc.length; i++) {

@@ -27,9 +27,6 @@
   align-items: center;
   justify-content: center;
   height: 25vh;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .food_meal img {
