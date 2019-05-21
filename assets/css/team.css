@@ -13,31 +13,40 @@
   cursor: pointer;
 }
 
-#member1 {
-  background-image: url('../img/body.png');
+#member1{
+  background-image: url('../img/joao.jpeg');
   background-color: var(--color-green);
+  background-size: 800px;
 }
 
 #member2 {
-  background-image: url('../img/body.png');
+  background-image: url('../img/jorge1.jpeg');
   background-color: var(--color-blue);
+  background-size: 800px;
 }
 
 #member3 {
-  background-image: url('../img/body.png');
+  background-image: url('../img/miguel2.jpeg');
   background-color: var(--color-pink);
+  background-size: 800px;
 }
 
 #member1:hover {
-  background-image: url('../img/body_female.png');
+  background-image: url('../img/joao2.jpeg');
+  transition: 0.4s;
+  background-size: 800px;
 }
 
 #member2:hover {
-  background-image: url('../img/body_female.png');
+  background-image: url('../img/jorge2.jpeg');
+  transition: 0.4s;
+  background-size: 800px;
 }
 
 #member3:hover {
-  background-image: url('../img/body_female.png');
+  background-image: url('../img/miguel.jpeg');
+  transition: 0.4s;
+  background-size: 700px;
 }
 
 #member_info_1, #member_info_2, #member_info_3 {
