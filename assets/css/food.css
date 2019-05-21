@@ -6,6 +6,7 @@
 .food {
   width: 25%;
   height: 25vh;
+<<<<<<< HEAD
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -17,10 +18,26 @@
 
 .accordion {
   display: inline-block;
+=======
+  display: flex;
+  align-items: center;
+  justify-content: center;
+>>>>>>> 25fbcb37ee1ad2302158a49986f9b00dd74f7cb5
   cursor: pointer;
   border: none;
   text-align: left;
   transition: 0.4s;
+}
+
+
+.food img {
+  position: inherit;
+  height: 150px;
+  width: auto;
+}
+
+.food:hover {
+  background-color: var(--color-white) !important;
 }
 
 .panel {
