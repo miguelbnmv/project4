@@ -4,7 +4,7 @@
 }
 
 .food {
-  width: 25vw;
+  width: 25%;
   height: 25vh;
   background-size: contain;
   background-repeat: no-repeat;
@@ -14,7 +14,6 @@
 .food:hover {
   background-color: var(--color-white) !important;
 }
-
 
 .accordion {
   display: inline-block;
@@ -27,7 +26,9 @@
 .panel {
   display: none;
   overflow: hidden;
-  width: 100vw;
-  height: 25vh;
+  width: 50vh;
+  height: 50vh;
   background-color: var(--color-pink);
+  margin-top: 25vh;
+  
 }

@@ -72,13 +72,13 @@
     var myColors = [];
     myColors.push("green", "yellow", "blue", "pink");
     var myFood = [];
-    myFood.push("banana", "ananas", "pao", "batata", "coca-cola", "carne", "alface", "pepino", "pera", "queijo", "fiambre", "agua", "massa", "arroz");
+    myFood.push("banana", "ananas", "pao", "batata", "coca-cola", "carne", "alface", "pepino", "pera", "queijo", "fiambre", "agua", "massa", "arroz","batata_frita", "peixe");
     for(var i=0; i<myFood.length; i++) {
       var div = document.createElement("div");
       var panel = document.createElement("div");
       panel.classList.add("panel");
       var para = document.createElement("p");
-      var node = document.createTextNode("This is new.");
+      var node = document.createTextNode("Alimento em questão");
       para.appendChild(node);
       div.classList.add("food");
       div.classList.add("accordion");
@@ -91,15 +91,15 @@
 /////////////////////////////////////////////////////////////// OPEN INFO
     var acc = document.getElementsByClassName("accordion");
     var i;
-
     for (i = 0; i < acc.length; i++) {
       acc[i].addEventListener("click", function() {
         this.classList.toggle("active");
         var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
+        panel.style.zIndex = "20";
+        if (panel.style.display === "flex") {
           panel.style.display = "none";
         } else {
-          panel.style.display = "block";
+          panel.style.display = "flex";
         }
       });
     }
