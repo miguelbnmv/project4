@@ -23,6 +23,7 @@
   <link href="assets/css/base.css" rel="stylesheet"/>
   <link href="assets/css/food.css" rel="stylesheet"/>
   <link href="assets/css/menu.css" rel="stylesheet"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </head>
 <body onkeypress="change_quote()">
     <input type="checkbox" id="myInput">
@@ -77,34 +78,55 @@
       var x = document.createElement("IMG");
       x.setAttribute("src", "assets/img/"+myFood[i]+".png");
       x.id = i;
-      var div = document.createElement("div");
+
+      var main_div = document.createElement("div");
+      main_div.classList.add("food");
+      main_div.style.backgroundColor = "var(--color-"+myColors[Math.floor(Math.random() * 4)]+")";
+      main_div.appendChild(x);
+      main_div.id = "btn"+i;
+
+      var main_panel = document.createElement("div");
+      main_panel.classList.add("modal");
+      main_panel.id = "myModal"+i;
+
       var panel = document.createElement("div");
-      panel.classList.add("panel");
+      panel.classList.add("modal-content");
+
+      var span = document.createElement("span");
+      var node2 = document.createTextNode("x");
+      span.classList.add("close");
+      span.appendChild(node2);
+
       var para = document.createElement("p");
-      var node = document.createTextNode("Alimento em questão");
+      var node = document.createTextNode("Alimento em questão "+i);
       para.appendChild(node);
-      div.classList.add("food");
-      div.style.backgroundColor = "var(--color-"+myColors[Math.floor(Math.random() * 4)]+")";
-      div.appendChild(x);
+
       panel.appendChild(para);
-      document.getElementById("main").appendChild(div);
-      document.getElementById("main").appendChild(panel);
+      panel.appendChild(span);
+      main_panel.appendChild(panel);
+      document.getElementById("main").appendChild(main_panel);
+      document.getElementById("main").appendChild(main_div);
     }
 /////////////////////////////////////////////////////////////// OPEN INFO
-    var acc = document.getElementsByClassName("food");
-    var i;
-    for (i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        panel.style.zIndex = "20";
-        if (panel.style.display === "flex") {
-          panel.style.display = "none";
-        } else {
-          panel.style.display = "flex";
+    $('body').on('click', function(e){
+      var str = e.target.id;
+      var res = str.substr(3, 3);
+      var modal = document.getElementById("myModal"+res);
+      var btn = document.getElementById(e.target.id);
+      var span = document.getElementsByClassName("close")[res];
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
         }
-      });
-    }
+      }
+    });
   </script>
 </body>
 </html>
+</div>
