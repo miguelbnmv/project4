@@ -80,17 +80,17 @@
       x.id = i;
 
       var main_div = document.createElement("div");
-      main_div.classList.add("food");
+      main_div.classList.add("food", "center");
       main_div.style.backgroundColor = "var(--color-"+myColors[Math.floor(Math.random() * 4)]+")";
       main_div.appendChild(x);
       main_div.id = "btn"+i;
 
       var main_panel = document.createElement("div");
-      main_panel.classList.add("modal");
+      main_panel.classList.add("modal", "center");
       main_panel.id = "myModal"+i;
 
       var panel = document.createElement("div");
-      panel.classList.add("modal-content");
+      panel.classList.add("modal-content", "center");
 
       var span = document.createElement("span");
       var node2 = document.createTextNode("x");
@@ -110,13 +110,24 @@
 /////////////////////////////////////////////////////////////// OPEN INFO
     $('body').on('click', function(e){
       var str = e.target.id;
-      var res = str.substr(3, 3);
-      var modal = document.getElementById("myModal"+res);
-      var btn = document.getElementById(e.target.id);
-      var span = document.getElementsByClassName("close")[res];
-      btn.onclick = function() {
-        modal.style.display = "block";
+      var inte = parseInt(str);
+      if (Number.isInteger(inte)==true) {
+        var modal = document.getElementById("myModal"+str);
+        var food = document.getElementById(str);
+        var span = document.getElementsByClassName("close")[str];
+        food.onclick = function() {
+          modal.style.display = "flex";
+        }
+      } else {
+          var res = str.substr(3, 3);
+          var modal = document.getElementById("myModal"+res);
+          var btn = document.getElementById("btn"+res);
+          var span = document.getElementsByClassName("close")[res];
+          btn.onclick = function() {
+            modal.style.display = "flex";
+          }
       }
+
       span.onclick = function() {
         modal.style.display = "none";
       }

@@ -13,7 +13,12 @@
   cursor: pointer;
 }
 
-#member1{
+#member1:hover, #member2:hover, #member3:hover {
+  transition: 0.4s;
+  background-size: 800px;
+}
+
+#member1 {
   background-image: url('../img/joao.jpeg');
   background-color: var(--color-green);
   background-size: 800px;
@@ -33,20 +38,14 @@
 
 #member1:hover {
   background-image: url('../img/joao2.jpeg');
-  transition: 0.4s;
-  background-size: 800px;
 }
 
 #member2:hover {
   background-image: url('../img/jorge2.jpeg');
-  transition: 0.4s;
-  background-size: 800px;
 }
 
 #member3:hover {
   background-image: url('../img/miguel.jpeg');
-  transition: 0.4s;
-  background-size: 700px;
 }
 
 #member_info_1, #member_info_2, #member_info_3 {
@@ -59,4 +58,8 @@
   padding: 2rem;
   background-image: none;
   background-color: var(--color-white);
+}
+
+#member_info_1 h2, #member_info_2 h2, #member_info_3 h2 {
+  padding-bottom: 2rem;
 }

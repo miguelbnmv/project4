@@ -31,6 +31,8 @@
   <link href="assets/css/base.css" rel="stylesheet"/>
   <link href="assets/css/index.css" rel="stylesheet"/>
   <link href="assets/css/menu.css" rel="stylesheet"/>
+  <script src="  https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+
 </head>
 <body onkeypress="change_quote()">
   <div class="container">
@@ -42,7 +44,7 @@
       <a href="food.html"><span>Click to see food!</span></a>
     </div>
   </div>
-  <script type="text/javascript">
+  <script type="text/javascript" type="module">
 /////////////////////////////////////////////////////////////// OPEN MENU
     function toogle_menu() {
       var f = document.getElementsByClassName("aside-section");
@@ -53,21 +55,19 @@
           f[0].style.display = 'flex';
           f[1].style.display = "flex";
       }
-    }
+
       var g = document.getElementsByClassName("aside-section");
       var h = document.getElementById("quote");
        if(g[0].style.display == 'flex')
           h.innerHTML = "ola";
     }
 
-    var $button = document.querySelector('.myButton');
-    $button.addEventListener('onmouseover', function() {
-      var duration = 0.3,
-          delay = 0.08;
-    TweenMax.to($button, duration, {scaleY: 1.6, ease: Expo.easeOut});
-    TweenMax.to($button, duration, {scaleX: 1.2, scaleY: 1, ease: Back.easeOut, easeParams: [3], delay: delay});
-    TweenMax.to($button, duration * 1.25, {scaleX: 1, scaleY: 1, ease: Back.easeOut, easeParams: [6], delay: delay * 3 });
-  });
+    const fs = require('fs');
+    fs.readFile('Input.txt', 'utf-8', (err, data) => {
+        if (err) throw err;
+
+        console.log(data);
+    })
   </script>
 </body>
 </html>
