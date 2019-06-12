@@ -10,7 +10,6 @@
 }
 
 .plate_column {
-  z-index: 1;
   width: 50%;
   height: 100vh;
   flex-direction: column;
@@ -31,7 +30,7 @@
   width: auto;
 }
 
-.plate_column a {
+.plate_column button {
   padding: 1rem;
   border: 4px solid var(--color-black);
   border-radius: 4px;
@@ -39,12 +38,12 @@
   text-decoration: none;
 }
 
-.plate_column a:hover {
+.plate_column button:hover {
   color: var(--color-white);
   border: 4px solid var(--color-blue);
   background-color: var(--color-blue);
 }
 
-.draggableCat {
-
+.hide {
+  display: none;
 }

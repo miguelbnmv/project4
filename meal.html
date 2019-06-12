@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="robots" content="noydir, noodp">
@@ -23,107 +22,50 @@
   <link href="assets/css/base.css" rel="stylesheet"/>
   <link href="assets/css/meal.css" rel="stylesheet"/>
   <link href="assets/css/menu.css" rel="stylesheet"/>
+  <script src="assets/js/quote.js"></script>
+  <script src="assets/js/openmenu.js"></script>
   <link href='http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css' rel='stylesheet'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+  <script src="assets/js/meal.js"></script>
 </head>
-<body onkeypress="change_quote()">
-    <input type="checkbox" id="myInput">
-    <label for="myInput" onclick="toogle_menu()">
-        <span class="bar top"></span>
-        <span class="bar middle"></span>
-        <span class="bar bottom"></span>
-      </label>
-    <aside>
-      <div id="" class="aside-section aside-left">
-        <div>
-          <h1 id="quote">"Pasta doesn't make you fat.<br>How much pasta you eat makes you fat."</h1>
-          <h5>press any key to get a new quote</h5>
+  <body onkeypress="change_quote()">
+      <input type="checkbox" id="myInput">
+      <label for="myInput" onclick="toogle_menu()">
+          <span class="bar top"></span>
+          <span class="bar middle"></span>
+          <span class="bar bottom"></span>
+        </label>
+      <aside>
+        <div class="aside-section aside-left">
+          <div>
+            <h1 id="quote">Pasta doesn't make you fat.<br>How much pasta you eat makes you fat.</h1>
+            <h5>press any key to get a new quote</h5>
+          </div>
         </div>
+        <div class="aside-section aside-right">
+          <a class="link" href="index.html">Home</a>
+          <a class="link" href="food.html">Food Selection</a>
+          <a class="link" href="meal.html">Create Meal</a>
+          <a class="link" href="team.html">Team</a>
+        </div>
+      </aside>
+    <div class="container" id="main">
+      <div class="food_column" id="food_column1">
       </div>
-      <div class="aside-section aside-right">
-        <a class="link" href="index.html">Home</a>
-        <a class="link" href="food.html">Food Selection</a>
-        <a class="link" href="meal.html">Create Meal</a>
-        <a class="link" href="team.html">Team</a>
+      <div class="plate_column center">
+        <img id="plate_column1" src="assets/img/plate.png" alt="plate">
+        <button id="btn_create">Create your food!</button>
+        <button onclick="reload()">Refresh your meal</button>
       </div>
-    </aside>
-  <div class="container" id="main">
-    <div class="food_column" id="food_column1">
+      <div class="food_column" id="food_column2">
+      </div>
     </div>
-    <div class="plate_column center" id="plate_column1">
-      <img  src="assets/img/plate.png" alt="prato">
-      <a href="">Create your food!</a>
-    </div>
-    <div class="food_column" id="food_column2">
-    </div>
-  </div>
-  <script type="text/javascript">
-/////////////////////////////////////////////////////////////// OPEN MENU
-  function toogle_menu() {
-    var f = document.getElementsByClassName("aside-section");
-     if(f[0].style.display == 'flex') {
-        f[0].style.display = "none";
-        f[1].style.display = "none";
-    } else {
-        f[0].style.display = 'flex';
-        f[1].style.display = "flex";
-    }
-  }
-/////////////////////////////////////////////////////////////// CHANGE QUOTE
-  function change_quote() {
-    var g = document.getElementsByClassName("aside-section");
-    var h = document.getElementById("quote");
-     if(g[0].style.display == 'flex')
-        h.innerHTML = "ola";
-  }
-/////////////////////////////////////////////////////////////// ADD FOOD DIVS
-  var myColors = [];
-  myColors.push("green", "yellow", "blue", "pink");
-  var myFood = [];
-  myFood.push("banana", "ananas", "pao", "batata", "coca-cola", "carne", "alface", "pepino", "pera", "queijo", "fiambre", "agua", "massa", "arroz");
-
-  for(var i=0; i<(myFood.length/2); i++) {
-    var x = document.createElement("IMG");
-    x.setAttribute("src", "assets/img/"+myFood[i]+".png");
-    x.id = i;
-    x.classList.add("draggableFood");
-
-    var div = document.createElement("div");
-    div.classList.add("food_meal", "center");
-    div.style.backgroundColor = "var(--color-"+myColors[Math.floor(Math.random() * 4)]+")";
-    div.appendChild(x);
-    document.getElementById("food_column1").appendChild(div);
-  }
-  for(var i=(myFood.length/2); i<myFood.length; i++) {
-    var x = document.createElement("IMG");
-    x.setAttribute("src", "assets/img/"+myFood[i]+".png");
-    x.id = i;
-    x.classList.add("draggableFood");
-
-    var div = document.createElement("div");
-    div.classList.add("food_meal","center");
-    div.style.backgroundColor = "var(--color-"+myColors[Math.floor(Math.random() * 4)]+")";
-    div.appendChild(x);
-    document.getElementById("food_column2").appendChild(div);
-  }
-
-  console.clear();
-
-  $(".draggableFood").draggable({
-  	stack: ".draggableFood",
-  	revert: 'invalid',
-    snap: "#plate_column1",
-    stack: ".draggableFood",
-    scroll: false
-  });
-
-  $("#plate_column1").droppable({
-  	accept: ".draggableFood",
-  	hoverClass: "ok"
-  });
-
-</script>
-</body>
+  </body>
 </html>
+<script>
+ function reload() {
+   location.reload();
+ }
+</script>

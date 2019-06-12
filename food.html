@@ -1,143 +1,54 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="robots" content="noydir, noodp">
-  <meta name="description" content="Project 4 - Obesity">
-  <meta name="keywords" content="project, Obesity, hope, lose, weight, uc, fctuc, 2019, design ,multimedia">
-  <meta name="author" content="Miguel Vasconcelos">
-  <meta property="og:image" content="https://project4.com/assets/img/lime.png"/>
-  <meta property="og:title" content="Project 4 - Obesity" />
-  <meta property="og:url" content="https://project4.pt"/>
-  <meta property="og:type" content="website" />
-  <link rel="canonical" href="https://www.project4.pt">
-  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-  <title>Not Tequila</title>
-  <link href="https://fonts.googleapis.com/css?family=Asap:400,400i,500,500i,600,600i,700,700i|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet">
-  <link href="assets/css/vars.css" rel="stylesheet"/>
-  <link href="assets/css/base.css" rel="stylesheet"/>
-  <link href="assets/css/food.css" rel="stylesheet"/>
-  <link href="assets/css/menu.css" rel="stylesheet"/>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-</head>
-<body onkeypress="change_quote()">
-    <input type="checkbox" id="myInput">
-    <label for="myInput" onclick="toogle_menu()">
-        <span class="bar top"></span>
-        <span class="bar middle"></span>
-        <span class="bar bottom"></span>
-      </label>
-    <aside>
-      <div id="" class="aside-section aside-left">
-        <div>
-          <h1 id="quote">"Pasta doesn't make you fat.<br>How much pasta you eat makes you fat."</h1>
-          <h5>press any key to get a new quote</h5>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="robots" content="noydir, noodp">
+    <meta name="description" content="Project 4 - Obesity">
+    <meta name="keywords" content="project, Obesity, hope, lose, weight, uc, fctuc, 2019, design ,multimedia">
+    <meta name="author" content="Miguel Vasconcelos">
+    <meta property="og:image" content="https://project4.com/assets/img/lime.png"/>
+    <meta property="og:title" content="Project 4 - Obesity" />
+    <meta property="og:url" content="https://project4.pt"/>
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://www.project4.pt">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <title>Not Tequila</title>
+    <link href="https://fonts.googleapis.com/css?family=Asap:400,400i,500,500i,600,600i,700,700i|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet">
+    <link href="assets/css/vars.css" rel="stylesheet"/>
+    <link href="assets/css/base.css" rel="stylesheet"/>
+    <link href="assets/css/food.css" rel="stylesheet"/>
+    <link href="assets/css/menu.css" rel="stylesheet"/>
+    <script src="assets/js/quote.js"></script>
+    <script src="assets/js/openmenu.js"></script>
+    <script src="assets/js/food.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  </head>
+  <body onkeypress="change_quote()">
+      <input type="checkbox" id="myInput">
+      <label for="myInput" onclick="toogle_menu()">
+          <span class="bar top"></span>
+          <span class="bar middle"></span>
+          <span class="bar bottom"></span>
+        </label>
+      <aside>
+        <div class="aside-section aside-left">
+          <div>
+            <h1 id="quote">Pasta doesn't make you fat.<br>How much pasta you eat makes you fat.</h1>
+            <h5>press any key to get a new quote</h5>
+          </div>
         </div>
-      </div>
-      <div class="aside-section aside-right">
-        <a class="link" href="index.html">Home</a>
-        <a class="link" href="food.html">Food Selection</a>
-        <a class="link" href="meal.html">Create Meal</a>
-        <a class="link" href="team.html">Team</a>
-      </div>
-    </aside>
-  <div class="container" id="main">
-  </div>
-  <script type="text/javascript">
-/////////////////////////////////////////////////////////////// OPEN MENU
-    function toogle_menu() {
-      var f = document.getElementsByClassName("aside-section");
-       if(f[0].style.display == 'flex') {
-          f[0].style.display = "none";
-          f[1].style.display = "none";
-      } else {
-          f[0].style.display = 'flex';
-          f[1].style.display = "flex";
-      }
-    }
-/////////////////////////////////////////////////////////////// CHANGE QUOTE
-    function change_quote() {
-      var text = readTextFile("./quote.txt").toString('utf-8');
-      console.log(text);
-      var g = document.getElementsByClassName("aside-section");
-      var h = document.getElementById("quote");
-       if(g[0].style.display == 'flex')
-          h.innerHTML = "ola";
-    }
-/////////////////////////////////////////////////////////////// ADD FOOD DIVS
-    var myColors = [];
-    myColors.push("green", "yellow", "blue", "pink");
-    var myFood = [];
-    myFood.push("banana", "ananas", "pao", "batata", "coca-cola", "carne", "alface", "pepino", "pera", "queijo", "fiambre", "agua", "massa", "arroz","batata_frita", "peixe");
-    for(var i=0; i<myFood.length; i++) {
-      var x = document.createElement("IMG");
-      x.setAttribute("src", "assets/img/"+myFood[i]+".png");
-      x.id = i;
-
-      var main_div = document.createElement("div");
-      main_div.classList.add("food", "center");
-      main_div.style.backgroundColor = "var(--color-"+myColors[Math.floor(Math.random() * 4)]+")";
-      main_div.appendChild(x);
-      main_div.id = "btn"+i;
-
-      var main_panel = document.createElement("div");
-      main_panel.classList.add("modal", "center");
-      main_panel.id = "myModal"+i;
-
-      var panel = document.createElement("div");
-      panel.classList.add("modal-content", "center");
-
-      var span = document.createElement("span");
-      var node2 = document.createTextNode("x");
-      span.classList.add("close");
-      span.appendChild(node2);
-
-      var para = document.createElement("p");
-      var node = document.createTextNode("Alimento em questão "+i);
-      para.appendChild(node);
-
-      panel.appendChild(para);
-      panel.appendChild(span);
-      main_panel.appendChild(panel);
-      document.getElementById("main").appendChild(main_panel);
-      document.getElementById("main").appendChild(main_div);
-    }
-/////////////////////////////////////////////////////////////// OPEN INFO
-    $('body').on('click', function(e){
-      var str = e.target.id;
-      var inte = parseInt(str);
-      if (Number.isInteger(inte)==true) {
-        var modal = document.getElementById("myModal"+str);
-        var food = document.getElementById(str);
-        var span = document.getElementsByClassName("close")[str];
-        food.onclick = function() {
-          modal.style.display = "flex";
-        }
-      } else {
-          var res = str.substr(3, 3);
-          var modal = document.getElementById("myModal"+res);
-          var btn = document.getElementById("btn"+res);
-          var span = document.getElementsByClassName("close")[res];
-          btn.onclick = function() {
-            modal.style.display = "flex";
-          }
-      }
-
-      span.onclick = function() {
-        modal.style.display = "none";
-      }
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      }
-    });
-  </script>
-</body>
+        <div class="aside-section aside-right">
+          <a class="link" href="index.html">Home</a>
+          <a class="link" href="food.html">Food Selection</a>
+          <a class="link" href="meal.html">Create Meal</a>
+          <a class="link" href="team.html">Team</a>
+        </div>
+      </aside>
+    <div class="container" id="main">
+    </div>
+  </body>
 </html>
-</div>
