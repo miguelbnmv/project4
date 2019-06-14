@@ -3,6 +3,7 @@
 }
 
 .food_column {
+  z-index: 1;
   width: 25%;
   height: 100vh;
   overflow-y: scroll;

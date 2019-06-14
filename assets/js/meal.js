@@ -102,15 +102,15 @@ function dontcry() {
     }
 
     var para = document.createElement("h1");
-    var node = document.createTextNode("A tua refeição:");
+    var node = document.createTextNode("Your meal:");
     var para_cals = document.createElement("p");
-    var cals = document.createTextNode("Calories: "+parseFloat(calscals)+"kcal");
+    var cals = document.createTextNode("Calories: "+parseFloat(calscals).toFixed(2)+"kcal");
     var para_fats = document.createElement("p");
-    var fats = document.createTextNode("Fat: "+parseFloat(fatsfats)+"g");
+    var fats = document.createTextNode("Fat: "+parseFloat(fatsfats).toFixed(2)+"g");
     var para_carbs = document.createElement("p");
-    var carbs = document.createTextNode("Carbohydrates: "+parseFloat(carbscarbs)+"g");
+    var carbs = document.createTextNode("Carbohydrates: "+parseFloat(carbscarbs).toFixed(2)+"g");
     var para_prots = document.createElement("p");
-    var prots = document.createTextNode("Proteins: "+parseFloat(protsprots)+"g");
+    var prots = document.createTextNode("Proteins: "+parseFloat(protsprots).toFixed(2)+"g");
     para.appendChild(node);
     para_cals.appendChild(cals);
     para_fats.appendChild(fats);
